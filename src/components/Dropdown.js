@@ -49,6 +49,12 @@ export const Dropdown = ({ options, selected, onSelectedChange }) => {
           </div>
         </div>
       </div>
+
+      <h1
+        style={{ color: `${selected.value}` }}
+      >
+        This text is {selected.value}
+      </h1>
     </div>
   );
 };
