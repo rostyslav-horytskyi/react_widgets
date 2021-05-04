@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const Accordion = ({ items }) => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
   const onTitleClick = index => {
-    console.log('Title clicked', index);
+    setActiveIndex(index);
   };
 
   return (
@@ -21,6 +23,7 @@ export const Accordion = ({ items }) => {
           </div>
         </React.Fragment>
       ))}
+      <h1>{activeIndex}</h1>
     </div>
   );
 };
