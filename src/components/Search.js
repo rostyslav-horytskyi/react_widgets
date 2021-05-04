@@ -8,14 +8,13 @@ export const Search = () => {
   useEffect(() => {
     const search = async () => {
       const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
-        action: 'query',
-        list: 'search',
-        origin: '*',
-        format: 'json',
-        srsearch: term,
-        headers: {
-          "Access-Control-Allow-Origin": '*',
-        }
+        params: {
+          action: 'query',
+          list: 'search',
+          origin: '*',
+          format: 'json',
+          srsearch: term,
+        },
       });
 
       setResults(data.query.search);
