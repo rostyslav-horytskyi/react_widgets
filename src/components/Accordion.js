@@ -9,21 +9,24 @@ export const Accordion = ({ items }) => {
 
   return (
     <div className="ui styled accordion">
-      {items.map((item, index) => (
-        <React.Fragment key={item.title}>
-          <div
-            className="title active"
-            onClick={() => onTitleClick(index)}
-          >
-            <i className="dropdown icon"></i>
-            {item.title}
-          </div>
-          <div className="content active">
-            <p>{item.content}</p>
-          </div>
-        </React.Fragment>
-      ))}
-      <h1>{activeIndex}</h1>
+      {items.map((item, index) => {
+        const active = index === activeIndex ? 'active' : '';
+      
+        return (
+          <React.Fragment key={item.title}>
+            <div
+              className={`title active ${active}`}
+              onClick={() => onTitleClick(index)}
+            >
+              <i className="dropdown icon"></i>
+              {item.title}
+            </div>
+            <div className={`content ${active}`}>
+              <p>{item.content}</p>
+            </div>
+          </React.Fragment>
+        )
+      })}
     </div>
   );
 };
