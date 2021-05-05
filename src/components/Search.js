@@ -9,7 +9,7 @@ export const Search = () => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedTerm(term);
-    });
+    }, 1000);
 
     return () => {
       clearTimeout(timerId);
@@ -31,7 +31,9 @@ export const Search = () => {
       setResults(data.query.search);
     };
 
-    search();
+    if (debouncedTerm) {
+      search();
+    }
   }, [debouncedTerm]);
 
   const renderedResults = results.map(result => (
