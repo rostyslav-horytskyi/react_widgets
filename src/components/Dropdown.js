@@ -15,7 +15,7 @@ export const Dropdown = ({ label, options, selected, onSelectedChange }) => {
 
     document.body.addEventListener('click', onBodyClick);
 
-    return document.body.removeEventListener('click', onBodyClick);
+    return () => document.body.removeEventListener('click', onBodyClick);
   }, []);
 
   const renderedOptions = options.map(option => {
